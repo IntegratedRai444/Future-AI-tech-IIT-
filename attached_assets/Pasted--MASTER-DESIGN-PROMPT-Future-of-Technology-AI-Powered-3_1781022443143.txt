@@ -1,0 +1,587 @@
+# 🚀 MASTER DESIGN PROMPT
+
+## Future of Technology – AI-Powered 3D Interactive Experience
+
+Design and develop a world-class futuristic 3D web experience called **"Future of Technology"** for a Techfest IIT Bombay Campus Ambassador web development challenge.
+
+The website should feel like a premium technology exhibition from the future, combining cutting-edge design, immersive 3D experiences, modern web technologies, and compelling storytelling.
+
+The final result should feel like a blend of:
+
+* Apple Product Launch Experience
+* Iron Man's Jarvis Interface
+* Tesla Design Philosophy
+* Cyberpunk 2077 Visuals
+* MIT Media Lab Innovation
+* Techfest IIT Bombay Spirit
+
+The website must instantly impress judges with exceptional creativity, visual quality, interaction design, and technical execution.
+
+---
+
+# 🎯 Project Objective
+
+Create an immersive interactive journey through humanity's most transformative technologies.
+
+The experience should educate, inspire, and amaze visitors while showcasing advanced frontend development skills.
+
+Visitors should feel like they are exploring a futuristic digital technology ecosystem rather than scrolling through a traditional website.
+
+---
+
+# 🌌 Core Concept
+
+At the center of the experience exists an intelligent entity called:
+
+## AI Core
+
+The AI Core represents the convergence of all future technologies.
+
+Every technology domain in the website is connected to this central intelligence.
+
+Visualize it as:
+
+```text
+                 Space Technology
+
+                        ●
+
+                        │
+
+                        │
+
+Cybersecurity ● ─── AI CORE ─── Robotics
+
+                        │
+
+                        │
+
+                        ●
+
+                 Smart Cities
+
+                        │
+
+                        ●
+
+             Autonomous Mobility
+```
+
+The AI Core should visually feel alive.
+
+It should:
+
+* Rotate continuously
+* Emit energy pulses
+* Generate particles
+* React to user interactions
+* Connect all technology domains
+
+---
+
+# 🎨 Design Philosophy
+
+## Theme
+
+Futuristic Innovation
+
+## Mood
+
+* Inspiring
+* Intelligent
+* Premium
+* Advanced
+* Technological
+* Immersive
+
+## Design Language
+
+* Glassmorphism
+* Holographic UI
+* Floating interfaces
+* Neon accents
+* Dynamic lighting
+* Layered depth
+* Soft futuristic gradients
+
+---
+
+# 🎨 Color Palette
+
+Primary:
+
+```css
+#00F5FF
+#00FFD5
+#7B61FF
+#FFFFFF
+```
+
+Background:
+
+```css
+#020617
+#050816
+#0F172A
+#111827
+```
+
+Accent:
+
+```css
+#3B82F6
+#8B5CF6
+#06B6D4
+```
+
+---
+
+# 🌠 Background Experience
+
+The entire website exists inside a futuristic digital universe.
+
+Include:
+
+* Dynamic starfield
+* Moving particles
+* Floating energy waves
+* Animated nebula clouds
+* Volumetric depth
+* Ambient lighting
+
+Background should never feel static.
+
+---
+
+# ⚡ Loading Experience
+
+Before entering the website, display:
+
+## Future Technology Initialization Sequence
+
+Animated messages:
+
+```text
+Initializing Future Technology Network
+
+Connecting Neural Systems
+
+Loading AI Core
+
+Establishing Quantum Channels
+
+Preparing Interactive Experience
+
+Welcome
+```
+
+Include:
+
+* Progress animation
+* Digital scanning effects
+* Futuristic startup visuals
+
+---
+
+# 🏠 Hero Section
+
+Create an unforgettable hero experience.
+
+Centerpiece:
+
+## AI Core
+
+A large glowing spherical intelligence floating in 3D space.
+
+Features:
+
+* Smooth rotation
+* Pulsing energy
+* Dynamic lighting
+* Orbiting particles
+* Interactive hover response
+
+Headline:
+
+# Future of Technology
+
+Subheadline:
+
+Experience the innovations transforming the future of humanity through Artificial Intelligence, Robotics, Space Exploration, Cybersecurity, Smart Cities, Quantum Computing, and Autonomous Systems.
+
+Buttons:
+
+* Explore Technologies
+* Begin Journey
+
+---
+
+# 🤖 Technology Domains
+
+Each domain should have its own visual identity, animations, and 3D interactions.
+
+---
+
+## Artificial Intelligence
+
+Visual:
+
+* Neural networks
+* Floating data streams
+* AI brain model
+
+Topics:
+
+* Generative AI
+* AI Agents
+* Autonomous Systems
+* Healthcare AI
+* Human-AI Collaboration
+
+Effects:
+
+* Flowing data connections
+* Dynamic network animations
+
+---
+
+## Cybersecurity
+
+Visual:
+
+* Digital shield
+* Global security network
+* Threat monitoring system
+
+Topics:
+
+* Zero Trust Security
+* AI Security Systems
+* Quantum Encryption
+* Threat Detection
+* Digital Identity
+
+Effects:
+
+* Security scans
+* Network pulse animations
+
+---
+
+## Robotics
+
+Visual:
+
+* Humanoid robots
+* Industrial robotics
+* Autonomous machines
+
+Topics:
+
+* Service Robotics
+* Manufacturing Automation
+* Human-Robot Interaction
+
+Effects:
+
+* Mechanical motion
+* Dynamic robotic animations
+
+---
+
+## Space Technology
+
+Visual:
+
+* Orbiting planets
+* Satellites
+* Space stations
+
+Topics:
+
+* Deep Space Exploration
+* Mars Missions
+* Lunar Infrastructure
+* Space AI
+
+Effects:
+
+* Orbital movement
+* Celestial animations
+
+---
+
+## Smart Cities
+
+Visual:
+
+* Futuristic skyline
+* Connected infrastructure
+* Smart grids
+
+Topics:
+
+* IoT Ecosystems
+* Intelligent Infrastructure
+* Sustainable Development
+* Urban Automation
+
+Effects:
+
+* Building light systems
+* Traffic simulations
+
+---
+
+## Autonomous Mobility
+
+Visual:
+
+* Flying vehicles
+* Electric transportation
+* Smart logistics systems
+
+Topics:
+
+* Self-driving Vehicles
+* Drone Networks
+* Smart Transportation
+* Future Mobility
+
+Effects:
+
+* Motion paths
+* Dynamic transportation systems
+
+---
+
+## Quantum Computing
+
+Visual:
+
+* Quantum particles
+* Quantum processor
+* Energy fields
+
+Topics:
+
+* Quantum Processing
+* Quantum Algorithms
+* Future Computing
+
+Effects:
+
+* Energy distortions
+* Particle simulations
+
+---
+
+# 🧠 Interactive Technology Network
+
+Create a futuristic technology map.
+
+The AI Core sits at the center.
+
+Technology nodes surround it.
+
+When users hover or click:
+
+* Connections illuminate
+* Information panels appear
+* Camera transitions occur
+* Animations activate
+
+This should feel like a living technology ecosystem.
+
+---
+
+# 📊 Future Metrics Section
+
+Create futuristic statistics.
+
+Examples:
+
+```text
+AI Processing Capacity
+
+Global Connectivity
+
+Renewable Energy Integration
+
+Automation Adoption
+
+Research Acceleration
+```
+
+Numbers should animate smoothly when entering viewport.
+
+---
+
+# 🎭 Animation System
+
+Use premium-level animations.
+
+Implement:
+
+## Scroll Animations
+
+* Smooth reveals
+* Depth transitions
+* Layered movements
+
+## Hover Effects
+
+* Glowing cards
+* Interactive tilt
+* Dynamic lighting
+
+## Section Transitions
+
+* Cinematic camera movement
+* Fluid transformations
+
+## AI Core Animation
+
+* Continuous rotation
+* Energy pulses
+* Particle generation
+
+---
+
+# 🌐 Navigation
+
+Create a floating futuristic navigation system.
+
+Menu:
+
+* Home
+* AI
+* Cybersecurity
+* Robotics
+* Space
+* Smart Cities
+* Mobility
+* Quantum
+* Contact
+
+Navigation style:
+
+* Glassmorphism
+* Blur effects
+* Neon highlights
+* Smooth transitions
+
+---
+
+# 🤖 Virtual AI Guide
+
+Create a floating AI assistant.
+
+Visual:
+
+* Glowing holographic orb
+
+Functions:
+
+* Welcome visitors
+* Explain technologies
+* Suggest sections to explore
+
+Sample messages:
+
+```text
+Welcome to Future of Technology
+
+Exploring Artificial Intelligence
+
+Accessing Space Technology
+
+Analyzing Quantum Systems
+
+Preparing Innovation Insights
+```
+
+---
+
+# 🏆 Innovation Showcase
+
+Create a section inspired by global innovation events.
+
+Include:
+
+* Emerging technologies
+* Research breakthroughs
+* Innovation challenges
+* Future opportunities
+
+Presentation style:
+
+A futuristic digital exhibition hall.
+
+---
+
+# 📱 Responsiveness
+
+Must work perfectly on:
+
+* Desktop
+* Tablet
+* Mobile
+
+Requirements:
+
+* Adaptive layouts
+* Mobile-friendly 3D rendering
+* Performance optimization
+* Smooth interactions
+
+---
+
+# ⚙️ Technical Stack
+
+Frontend:
+
+* React
+* TypeScript
+* Vite
+
+3D:
+
+* Three.js
+* React Three Fiber
+* Drei
+
+Animation:
+
+* GSAP
+* Framer Motion
+
+Styling:
+
+* Tailwind CSS
+
+Deployment:
+
+* Vercel
+
+---
+
+# 🚀 Final Goal
+
+The final website should feel like a premium interactive technology museum of the future.
+
+A visitor should immediately think:
+
+> "This doesn't look like a student project. This looks like a professional product experience built by a top-tier frontend engineer."
+
+The project should maximize:
+
+1. Visual impact
+2. Creativity
+3. User engagement
+4. Technical sophistication
+5. Storytelling
+6. Innovation
+7. IIT Techfest appeal
+
+Build something memorable, immersive, futuristic, and worthy of standing out among hundreds of submissions.
