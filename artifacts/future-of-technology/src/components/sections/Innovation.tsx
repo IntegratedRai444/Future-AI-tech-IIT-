@@ -1,11 +1,11 @@
 import { motion } from 'framer-motion';
 
 const TIMELINE_ENTRIES = [
-  { year: "2025", title: "AI Agents Go Autonomous",      desc: "Artificial General Intelligence transitions from tool to collaborator.",                                    color: "#ffffff" },
-  { year: "2030", title: "Smart Cities Fully Online",    desc: "Urban infrastructure achieves full sensor integration and autonomous management.",                        color: "#cccccc" },
-  { year: "2035", title: "Quantum Internet Deployed",    desc: "Global quantum-encrypted communication replaces classical networks.",                                      color: "#aaaaaa" },
-  { year: "2040", title: "Human-AI Synthesis Networks",  desc: "Neural interfaces achieve seamless bidirectional human-machine communication.",                           color: "#888888" },
-  { year: "2050", title: "Interplanetary Civilization",  desc: "Self-sustaining Mars colonies mark humanity's transition to multi-planetary species.",                    color: "#666666" },
+  { year: "2025", category: "Artificial Intelligence", title: "Autonomous AI Agents",            desc: "Artificial General Intelligence transitions from tool to autonomous collaborator, reshaping every industry.",                  color: "#ffffff" },
+  { year: "2030", category: "Robotics",                title: "Human-Robot Collaboration",       desc: "Advanced humanoid robots integrate into daily workflows, working seamlessly alongside humans in dynamic environments.",        color: "#cccccc" },
+  { year: "2035", category: "Cybersecurity",           title: "Quantum-Safe Infrastructure",     desc: "Global networks transition to post-quantum cryptographic standards, securing communications against next-generation threats.", color: "#aaaaaa" },
+  { year: "2040", category: "Computing",               title: "Practical Quantum Computing",     desc: "Fault-tolerant quantum processors solve real-world optimization, drug discovery, and materials science problems at scale.",    color: "#888888" },
+  { year: "2050", category: "Space Exploration",       title: "Permanent Lunar & Martian Bases", desc: "Self-sustaining human settlements on the Moon and Mars mark humanity's definitive transition to a multi-planetary species.",   color: "#666666" },
 ];
 
 export default function Innovation() {
@@ -49,6 +49,9 @@ export default function Innovation() {
                       style={{ backgroundColor: entry.color }}>
                       {entry.year}
                     </div>
+                    <p className="text-xs font-mono tracking-widest uppercase mb-1" style={{ color: entry.color }}>
+                      {entry.category}
+                    </p>
                     <h3 className="text-xl font-bold text-white mb-2">{entry.title}</h3>
                     <p className="text-muted-foreground text-sm leading-relaxed">{entry.desc}</p>
                   </div>
