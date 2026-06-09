@@ -18,20 +18,19 @@ export default function Hero() {
       <div className="absolute inset-0 z-0 pointer-events-none">
         <Suspense fallback={null}>
           <Canvas camera={{ position: [0, 0, 8], fov: 45 }}>
-            <ambientLight intensity={0.5} />
-            <pointLight position={[10, 10, 10]} intensity={1} color="#00F5FF" />
-            <pointLight position={[-10, -10, -10]} intensity={0.5} color="#7B61FF" />
-            
+            <ambientLight intensity={0.4} />
+            <pointLight position={[10, 10, 10]} intensity={0.8} color="#ffffff" />
+            <pointLight position={[-10, -10, -10]} intensity={0.3} color="#aaaaaa" />
+
             <Stars radius={100} depth={50} count={5000} factor={4} saturation={0} fade speed={1} />
-            
+
             <group position={[0, 0, -2]}>
-              <AICore scale={1.5} />
+              <AICore scale={1.5} color="#ffffff" />
             </group>
-            
-            {/* Auto rotate slowly */}
-            <OrbitControls 
-              enableZoom={false} 
-              enablePan={false} 
+
+            <OrbitControls
+              enableZoom={false}
+              enablePan={false}
               enableRotate={false}
               autoRotate
               autoRotateSpeed={0.5}
@@ -46,16 +45,16 @@ export default function Hero() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.5 }}
-          className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-primary/30 bg-primary/10 text-primary text-sm font-medium mb-8 backdrop-blur-md"
+          className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-white/20 bg-white/5 text-white/80 text-sm font-medium mb-8 backdrop-blur-md"
         >
           <span className="relative flex h-2 w-2">
-            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
-            <span className="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
+            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-50"></span>
+            <span className="relative inline-flex rounded-full h-2 w-2 bg-white"></span>
           </span>
           System Online
         </motion.div>
 
-        <motion.h1 
+        <motion.h1
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1, delay: 0.7, ease: "easeOut" }}
@@ -63,10 +62,10 @@ export default function Hero() {
         >
           <span className="text-gradient">FUTURE OF</span>
           <br />
-          <span className="text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.3)]">TECHNOLOGY</span>
+          <span className="text-white drop-shadow-[0_0_30px_rgba(255,255,255,0.2)]">TECHNOLOGY</span>
         </motion.h1>
 
-        <motion.p 
+        <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 1 }}
@@ -75,24 +74,24 @@ export default function Hero() {
           Enter a living digital universe. Explore the convergence of Artificial Intelligence, Quantum Computing, and Robotics shaping human destiny.
         </motion.p>
 
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 1.2 }}
           className="flex flex-col sm:flex-row items-center gap-6"
         >
-          <Button 
+          <Button
             onClick={scrollToExplore}
-            size="lg" 
-            className="h-14 px-8 bg-primary text-primary-foreground hover:bg-primary/90 text-lg font-semibold rounded-full shadow-[0_0_20px_rgba(0,245,255,0.4)] hover:shadow-[0_0_30px_rgba(0,245,255,0.6)] transition-all duration-300 w-full sm:w-auto"
+            size="lg"
+            className="h-14 px-8 bg-white text-black hover:bg-white/90 text-lg font-semibold rounded-full shadow-[0_0_20px_rgba(255,255,255,0.2)] hover:shadow-[0_0_30px_rgba(255,255,255,0.35)] transition-all duration-300 w-full sm:w-auto"
           >
             Begin Journey
           </Button>
-          <Button 
-            variant="outline" 
+          <Button
+            variant="outline"
             size="lg"
             onClick={scrollToExplore}
-            className="h-14 px-8 border-primary/50 text-primary hover:bg-primary/10 text-lg font-semibold rounded-full glass w-full sm:w-auto neon-border"
+            className="h-14 px-8 border-white/40 text-white hover:bg-white/10 text-lg font-semibold rounded-full glass w-full sm:w-auto neon-border"
           >
             Explore Technologies
           </Button>
@@ -100,7 +99,7 @@ export default function Hero() {
       </div>
 
       {/* Scroll indicator */}
-      <motion.div 
+      <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 1, delay: 2 }}
@@ -111,7 +110,7 @@ export default function Hero() {
           animate={{ y: [0, 10, 0] }}
           transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
         >
-          <ChevronDown className="w-6 h-6 text-primary" />
+          <ChevronDown className="w-6 h-6 text-white/50" />
         </motion.div>
       </motion.div>
     </section>

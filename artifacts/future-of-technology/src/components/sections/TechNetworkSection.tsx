@@ -5,12 +5,12 @@ import * as THREE from 'three';
 import { motion } from 'framer-motion';
 
 const NODES = [
-  { id: 'ai', label: 'Artificial Intelligence', color: '#00F5FF', radius: 3, angle: 0, speed: 0.2 },
-  { id: 'cyber', label: 'Cybersecurity', color: '#FF5500', radius: 4, angle: Math.PI / 3, speed: 0.15 },
-  { id: 'robotics', label: 'Robotics', color: '#3B82F6', radius: 5, angle: (Math.PI / 3) * 2, speed: 0.25 },
-  { id: 'space', label: 'Space Tech', color: '#4F46E5', radius: 6, angle: Math.PI, speed: 0.1 },
-  { id: 'smart', label: 'Smart Cities', color: '#10B981', radius: 4.5, angle: (Math.PI / 3) * 4, speed: 0.18 },
-  { id: 'mobility', label: 'Mobility', color: '#FBBF24', radius: 5.5, angle: (Math.PI / 3) * 5, speed: 0.22 },
+  { id: 'ai', label: 'Artificial Intelligence', color: '#ffffff', radius: 3, angle: 0, speed: 0.2 },
+  { id: 'cyber', label: 'Cybersecurity', color: '#cccccc', radius: 4, angle: Math.PI / 3, speed: 0.15 },
+  { id: 'robotics', label: 'Robotics', color: '#aaaaaa', radius: 5, angle: (Math.PI / 3) * 2, speed: 0.25 },
+  { id: 'space', label: 'Space Tech', color: '#888888', radius: 6, angle: Math.PI, speed: 0.1 },
+  { id: 'smart', label: 'Smart Cities', color: '#bbbbbb', radius: 4.5, angle: (Math.PI / 3) * 4, speed: 0.18 },
+  { id: 'mobility', label: 'Mobility', color: '#dddddd', radius: 5.5, angle: (Math.PI / 3) * 5, speed: 0.22 },
 ];
 
 function NetworkGraph() {
@@ -29,14 +29,13 @@ function NetworkGraph() {
       {/* Center AI Core */}
       <mesh>
         <sphereGeometry args={[1, 32, 32]} />
-        <meshBasicMaterial color="#00F5FF" transparent opacity={0.8} />
+        <meshBasicMaterial color="#ffffff" transparent opacity={0.85} />
       </mesh>
-      
-      <pointLight position={[0,0,0]} intensity={2} color="#00F5FF" distance={20} />
 
-      {/* Nodes and Connections */}
+      <pointLight position={[0, 0, 0]} intensity={1.5} color="#ffffff" distance={20} />
+
       {NODES.map((node) => (
-        <NetworkNode 
+        <NetworkNode
           key={node.id}
           node={node}
           isHovered={hoveredNode === node.id}
@@ -49,10 +48,6 @@ function NetworkGraph() {
 
 function NetworkNode({ node, isHovered, onHover }: any) {
   const meshRef = useRef<THREE.Mesh>(null);
-  const lineRef = useRef<any>(null);
-  
-  // Calculate position manually to keep it fixed relative to center for the line, 
-  // but we can animate the angle
   const [angleOffset, setAngleOffset] = useState(0);
 
   useFrame((state, delta) => {
@@ -62,31 +57,31 @@ function NetworkNode({ node, isHovered, onHover }: any) {
   const currentAngle = node.angle + angleOffset;
   const x = Math.cos(currentAngle) * node.radius;
   const z = Math.sin(currentAngle) * node.radius;
-  const y = Math.sin(currentAngle * 2) * 1.5; // Add some vertical wave
+  const y = Math.sin(currentAngle * 2) * 1.5;
 
   return (
     <>
       <Line
         points={[[0, 0, 0], [x, y, z]]}
-        color={isHovered ? node.color : "#475569"}
+        color={isHovered ? '#ffffff' : '#333333'}
         lineWidth={isHovered ? 2 : 1}
         transparent
-        opacity={isHovered ? 0.8 : 0.2}
+        opacity={isHovered ? 0.9 : 0.3}
       />
-      
+
       <group position={[x, y, z]}>
-        <mesh 
+        <mesh
           ref={meshRef}
           onPointerOver={() => { document.body.style.cursor = 'pointer'; onHover(node.id); }}
           onPointerOut={() => { document.body.style.cursor = 'auto'; onHover(null); }}
         >
           <sphereGeometry args={[isHovered ? 0.4 : 0.3, 16, 16]} />
-          <meshBasicMaterial color={node.color} transparent opacity={isHovered ? 1 : 0.7} />
+          <meshBasicMaterial color={node.color} transparent opacity={isHovered ? 1 : 0.65} />
         </mesh>
 
         {isHovered && (
           <Html position={[0.5, 0.5, 0]} center className="pointer-events-none">
-            <div className="bg-background/80 backdrop-blur border border-white/10 px-3 py-1.5 rounded text-sm font-medium whitespace-nowrap text-white" style={{ borderColor: node.color, boxShadow: `0 0 10px ${node.color}40` }}>
+            <div className="bg-black/90 backdrop-blur border border-white/20 px-3 py-1.5 rounded text-sm font-medium whitespace-nowrap text-white shadow-[0_0_12px_rgba(255,255,255,0.15)]">
               {node.label}
             </div>
           </Html>

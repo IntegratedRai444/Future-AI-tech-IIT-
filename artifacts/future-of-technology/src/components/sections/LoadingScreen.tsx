@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useRef } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 import gsap from 'gsap';
 
 interface LoadingScreenProps {
@@ -22,11 +22,10 @@ export default function LoadingScreen({ onComplete }: LoadingScreenProps) {
   const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    // Typewriter effect for current message
     const msg = MESSAGES[currentMsgIndex];
     let i = 0;
     setDisplayedText("");
-    
+
     const typingInterval = setInterval(() => {
       if (i <= msg.length) {
         setDisplayedText(msg.slice(0, i));
@@ -40,9 +39,8 @@ export default function LoadingScreen({ onComplete }: LoadingScreenProps) {
   }, [currentMsgIndex]);
 
   useEffect(() => {
-    // Progress and message sequencing
     let currentProgress = 0;
-    const duration = 4000; // 4 seconds total loading
+    const duration = 4000;
     const intervalTime = 50;
     const steps = duration / intervalTime;
     const progressIncrement = 100 / steps;
@@ -50,13 +48,12 @@ export default function LoadingScreen({ onComplete }: LoadingScreenProps) {
 
     const timer = setInterval(() => {
       currentProgress += progressIncrement;
-      
+
       if (currentProgress >= 100) {
         setProgress(100);
         setCurrentMsgIndex(MESSAGES.length - 1);
         clearInterval(timer);
-        
-        // Wait a bit on 100% before completing
+
         setTimeout(() => {
           if (containerRef.current) {
             gsap.to(containerRef.current, {
@@ -85,63 +82,62 @@ export default function LoadingScreen({ onComplete }: LoadingScreenProps) {
   }, [onComplete]);
 
   return (
-    <div 
+    <div
       ref={containerRef}
-      className="fixed inset-0 z-50 flex flex-col items-center justify-center bg-[#020617] text-white"
+      className="fixed inset-0 z-50 flex flex-col items-center justify-center bg-[#050505] text-white"
     >
-      {/* Background Grid */}
-      <div className="absolute inset-0 bg-[linear-gradient(rgba(0,245,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(0,245,255,0.03)_1px,transparent_1px)] bg-[size:50px_50px] [mask-image:radial-gradient(ellipse_60%_60%_at_50%_50%,#000_10%,transparent_100%)]"></div>
+      {/* Subtle grid */}
+      <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.025)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.025)_1px,transparent_1px)] bg-[size:50px_50px] [mask-image:radial-gradient(ellipse_60%_60%_at_50%_50%,#000_10%,transparent_100%)]"></div>
 
       {/* Main Content */}
       <div className="relative z-10 w-full max-w-md px-6 flex flex-col items-center">
-        {/* Glowing Logo placeholder / spinner */}
+        {/* Spinner */}
         <div className="relative w-24 h-24 mb-12">
-          <motion.div 
+          <motion.div
             animate={{ rotate: 360 }}
             transition={{ duration: 4, repeat: Infinity, ease: "linear" }}
-            className="absolute inset-0 rounded-full border-t-2 border-r-2 border-primary opacity-50"
+            className="absolute inset-0 rounded-full border-t-2 border-r-2 border-white/40"
           />
-          <motion.div 
+          <motion.div
             animate={{ rotate: -360 }}
             transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
-            className="absolute inset-2 rounded-full border-b-2 border-l-2 border-accent opacity-70"
+            className="absolute inset-2 rounded-full border-b-2 border-l-2 border-white/20"
           />
           <div className="absolute inset-0 flex items-center justify-center">
-            <div className="w-4 h-4 bg-primary rounded-full animate-pulse shadow-[0_0_15px_#00F5FF]"></div>
+            <div className="w-4 h-4 bg-white rounded-full animate-pulse shadow-[0_0_15px_rgba(255,255,255,0.6)]"></div>
           </div>
         </div>
 
         {/* Terminal Output */}
-        <div className="w-full font-mono text-sm sm:text-base h-8 flex items-center text-primary mb-8 tracking-wider">
-          <span className="mr-2">&gt;</span>
+        <div className="w-full font-mono text-sm sm:text-base h-8 flex items-center text-white mb-8 tracking-wider">
+          <span className="mr-2 text-white/40">&gt;</span>
           {displayedText}
-          <motion.span 
-            animate={{ opacity: [1, 0] }} 
+          <motion.span
+            animate={{ opacity: [1, 0] }}
             transition={{ duration: 0.8, repeat: Infinity }}
-            className="ml-1 inline-block w-2 h-5 bg-primary"
+            className="ml-1 inline-block w-2 h-5 bg-white"
           />
         </div>
 
-        {/* Progress Bar Container */}
+        {/* Progress Bar */}
         <div className="w-full relative">
-          <div className="h-1 w-full bg-slate-800 rounded-full overflow-hidden">
-            <motion.div 
-              className="h-full bg-gradient-to-r from-primary via-accent to-secondary"
+          <div className="h-px w-full bg-white/10 rounded-full overflow-hidden">
+            <motion.div
+              className="h-full bg-gradient-to-r from-white/40 via-white to-white/60"
               style={{ width: `${progress}%` }}
               layout
             />
           </div>
-          
-          {/* Progress Numbers */}
-          <div className="absolute top-4 right-0 font-mono text-xs text-muted-foreground">
+
+          <div className="absolute top-4 right-0 font-mono text-xs text-white/30">
             {Math.round(progress)}%
           </div>
-          
+
           {/* Scanning line */}
-          <motion.div 
+          <motion.div
             animate={{ x: ["-100%", "200%"] }}
             transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
-            className="absolute top-0 left-0 bottom-0 w-1/4 bg-gradient-to-r from-transparent via-white/20 to-transparent skew-x-[-20deg]"
+            className="absolute top-0 left-0 bottom-0 w-1/4 bg-gradient-to-r from-transparent via-white/30 to-transparent skew-x-[-20deg]"
           />
         </div>
       </div>
