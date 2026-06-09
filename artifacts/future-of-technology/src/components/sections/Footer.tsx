@@ -6,14 +6,14 @@ export default function Footer() {
     <footer className="relative py-12 border-t border-white/8 bg-[#030303] overflow-hidden">
       {/* Subtle dot grid */}
       <div className="absolute inset-0 opacity-[0.06]" style={{
-        backgroundImage: 'radial-gradient(circle at center, #ffffff 1px, transparent 1px)',
+        backgroundImage: 'radial-gradient(circle at center, #00F5FF 1px, transparent 1px)',
         backgroundSize: '30px 30px'
       }}></div>
 
       <div className="container relative z-10 px-4 mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
         <div className="flex flex-col items-center md:items-start">
           <h2 className="text-2xl font-bold font-display">
-            TECH<span className="text-white">FEST</span> <span className="text-muted-foreground font-light text-xl">IIT BOMBAY</span>
+            <span className="text-white">TECH</span><span className="text-primary">FEST</span> <span className="text-muted-foreground font-light text-xl">IIT BOMBAY</span>
           </h2>
           <p className="text-sm text-muted-foreground mt-2">
             The Future of Technology Exhibition
@@ -26,7 +26,7 @@ export default function Footer() {
               key={social}
               href="#"
               whileHover={{ y: -3 }}
-              className="text-muted-foreground hover:text-white text-sm font-medium transition-colors"
+              className="text-muted-foreground hover:text-[#00F5FF] text-sm font-medium transition-colors"
             >
               {social}
             </motion.a>

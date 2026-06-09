@@ -98,19 +98,19 @@
   --popover-foreground: 0 0% 100%;
   --popover-border: 0 0% 12%;
 
-  /* Primary: white */
-  --primary: 0 0% 100%;
+  /* Primary */
+  --primary: 182 100% 50%;
   --primary-foreground: 0 0% 0%;
 
-  /* Secondary: medium gray */
-  --secondary: 0 0% 60%;
+  /* Secondary */
+  --secondary: 250 100% 69%;
   --secondary-foreground: 0 0% 0%;
 
   --muted: 0 0% 12%;
   --muted-foreground: 0 0% 50%;
 
-  /* Accent: light gray */
-  --accent: 0 0% 80%;
+  /* Accent */
+  --accent: 170 100% 50%;
   --accent-foreground: 0 0% 0%;
 
   --destructive: 0 72% 51%;
@@ -199,31 +199,31 @@
 }
 
 .glass-card:hover {
-  border: 1px solid rgba(255, 255, 255, 0.25);
-  box-shadow: 0 8px 32px 0 rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(0, 245, 255, 0.2);
+  box-shadow: 0 8px 32px 0 rgba(0, 245, 255, 0.06);
 }
 
 .text-gradient {
-  background: linear-gradient(to right, #ffffff, #888888);
+  background: linear-gradient(to right, #00F5FF, #7B61FF);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
 .text-gradient-teal {
-  background: linear-gradient(to right, #ffffff, #aaaaaa);
+  background: linear-gradient(to right, #00F5FF, #00FFD5);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
 .neon-border {
-  box-shadow: 0 0 10px rgba(255, 255, 255, 0.25), inset 0 0 10px rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.6);
+  box-shadow: 0 0 10px rgba(0, 245, 255, 0.25), inset 0 0 10px rgba(0, 245, 255, 0.05);
+  border: 1px solid rgba(0, 245, 255, 0.6);
 }
 
 .neon-text {
-  text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+  text-shadow: 0 0 10px rgba(0, 245, 255, 0.5);
 }
 
 @layer utilities {

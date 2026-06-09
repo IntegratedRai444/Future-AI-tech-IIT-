@@ -1,0 +1,345 @@
+🚀 DESIGN UPGRADE PROMPT — FUTURE OF TECHNOLOGY
+
+Analyze the existing website and transform it from a premium landing page into a truly immersive futuristic 3D technology experience.
+
+Do NOT redesign everything from scratch.
+
+Preserve:
+
+Current layout
+Current typography
+Current navigation
+Current card structure
+Current dark aesthetic
+
+Upgrade the experience significantly.
+
+CURRENT PROBLEM
+
+The website looks visually polished but does not strongly communicate:
+
+Future technology
+Immersive 3D experience
+Innovation
+Technical sophistication
+
+It currently feels like:
+
+"A premium SaaS landing page"
+
+Instead it should feel like:
+
+"An interactive futuristic technology museum powered by AI."
+
+PRIORITY 1 — CREATE A REAL AI CORE
+
+The current sphere behind the hero text feels decorative.
+
+Replace it with a true centerpiece called:
+
+AI Core
+
+Requirements:
+
+Three.js powered
+Interactive
+Rotating continuously
+Glowing energy effect
+Dynamic particles
+Pulsing animations
+Mouse-reactive movement
+Multiple orbital rings
+Holographic appearance
+
+The AI Core must immediately become the most memorable visual element on the page.
+
+When users move their mouse:
+
+Core should subtly respond
+Particles should react
+Camera should shift slightly
+
+Think:
+
+Iron Man Jarvis
++
+OpenAI Intelligence
++
+Techfest Future Lab
+
+PRIORITY 2 — ADD ACTUAL 3D
+
+The task is "Build in 3D".
+
+The current implementation lacks obvious 3D interaction.
+
+Add:
+
+Three.js Scene
+
+Include:
+
+Floating particles
+Dynamic stars
+Animated nebula
+Volumetric lighting
+Depth effects
+Technology Nodes
+
+Create floating nodes around AI Core:
+
+AI
+Cybersecurity
+Robotics
+Space Tech
+Smart Cities
+Quantum Computing
+
+Nodes should:
+
+Orbit slowly
+Glow softly
+Connect via animated lines
+PRIORITY 3 — FUTURISTIC COLOR SYSTEM
+
+Current UI is almost monochrome.
+
+Keep the elegant black aesthetic.
+
+Add strategic accents only.
+
+Primary Colors:
+
+#00F5FF
+#00FFD5
+#7B61FF
+
+Use only for:
+
+AI Core glow
+Hover states
+Active navigation
+Animated connections
+Particle effects
+
+Avoid rainbow colors.
+
+Maintain premium appearance.
+
+PRIORITY 4 — DOMAIN CARDS NEED LIFE
+
+Current cards are static.
+
+Transform them into intelligent technology panels.
+
+Each card should have unique animation.
+
+Artificial Intelligence:
+
+Neural network animation
+Data pulses
+
+Cybersecurity:
+
+Scanning lines
+Shield pulse
+
+Quantum Computing:
+
+Floating particles
+Quantum field effect
+
+Robotics:
+
+Mechanical movement
+Rotating components
+
+Space Technology:
+
+Orbiting objects
+Star movement
+
+Smart Cities:
+
+Building light activity
+Grid connections
+
+Animations should be subtle and premium.
+
+PRIORITY 5 — TECHNOLOGY NETWORK SECTION
+
+Add a new flagship section.
+
+Title:
+
+Technology Ecosystem
+
+Display:
+
+AI Core in center.
+
+Connected nodes around it.
+
+Visual structure:
+
+Space Tech
+
+●
+
+│
+
+Cyber ● ─── AI CORE ─── ● Robotics
+
+│
+
+●
+
+Smart Cities
+
+│
+
+●
+
+Quantum Computing
+
+Users should be able to:
+
+Hover nodes
+Click nodes
+Trigger animations
+Reveal information
+
+This section should be the showcase feature.
+
+PRIORITY 6 — HERO SECTION IMPROVEMENTS
+
+Current hero is good.
+
+Make it unforgettable.
+
+Keep:
+
+Future of Technology
+
+Improve:
+
+Add animated subtitle.
+
+Cycle through:
+
+Artificial Intelligence
+
+Cybersecurity
+
+Quantum Computing
+
+Space Technology
+
+Robotics
+
+Smart Cities
+
+Add typing effect.
+
+Add glowing cursor.
+
+PRIORITY 7 — CINEMATIC SCROLL EXPERIENCE
+
+Add scroll-driven storytelling.
+
+As users scroll:
+
+Camera shifts
+Objects move
+Depth changes
+Particles react
+
+Sections should feel connected.
+
+Avoid traditional static scrolling.
+
+Create a journey.
+
+PRIORITY 8 — INNOVATION SHOWCASE
+
+Current innovation cards feel empty.
+
+Convert them into:
+
+Future Breakthrough Timeline
+
+Examples:
+
+2025
+AI Agents Become Mainstream
+
+2030
+Autonomous Smart Cities
+
+2035
+Quantum Internet Deployment
+
+2040
+Human-AI Collaboration Networks
+
+Add timeline animations.
+
+PRIORITY 9 — MICRO INTERACTIONS
+
+Improve every interaction.
+
+Buttons:
+
+Magnetic hover
+Glow effect
+Depth movement
+
+Cards:
+
+Tilt effect
+Dynamic lighting
+
+Navigation:
+
+Smooth transitions
+Active indicator movement
+PRIORITY 10 — TECHFEST LEVEL POLISH
+
+Final experience should feel:
+
+Premium
+Futuristic
+Interactive
+Innovative
+Technically impressive
+
+The website should look like:
+
+"A showcase project presented at a global technology conference."
+
+Not:
+
+"A modern portfolio website."
+
+TECH STACK
+
+Keep:
+
+React
+TypeScript
+Tailwind
+
+Add:
+
+Three.js
+React Three Fiber
+Drei
+GSAP
+Framer Motion
+FINAL GOAL
+
+Increase the website from:
+
+Premium Landing Page → Futuristic Interactive 3D Technology Experience
+
+The first reaction of a visitor should be:

@@ -51,11 +51,11 @@ export default function NavBar() {
     >
       <div className="container mx-auto px-4 md:px-8 flex items-center justify-between">
         <div className="flex items-center gap-2 cursor-pointer" onClick={() => scrollTo('#home')}>
-          <div className="w-8 h-8 rounded bg-white shadow-[0_0_15px_rgba(255,255,255,0.3)] flex items-center justify-center">
+          <div className="w-8 h-8 rounded bg-primary shadow-[0_0_15px_rgba(0,245,255,0.3)] flex items-center justify-center">
             <div className="w-4 h-4 border-2 border-black rotate-45"></div>
           </div>
           <span className="font-display font-bold text-xl tracking-tight text-white hidden sm:block">
-            TECH<span className="text-white/60">FEST</span>
+            TECH<span className="text-primary">FEST</span>
           </span>
         </div>
 
@@ -66,7 +66,7 @@ export default function NavBar() {
               onClick={() => scrollTo(link.href)}
               className={`relative px-4 py-2 text-sm font-medium transition-colors rounded-full ${
                 activeSection === link.href.substring(1)
-                  ? 'text-white'
+                  ? 'text-primary'
                   : 'text-white/40 hover:text-white/80'
               }`}
             >
@@ -74,7 +74,7 @@ export default function NavBar() {
               {activeSection === link.href.substring(1) && (
                 <motion.div
                   layoutId="nav-pill"
-                  className="absolute inset-0 bg-white/10 rounded-full border border-white/25 -z-10"
+                  className="absolute inset-0 bg-primary/10 rounded-full neon-border -z-10"
                   transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
                 />
               )}
@@ -90,7 +90,7 @@ export default function NavBar() {
               <line x1="3" y1="18" x2="21" y2="18"></line>
             </svg>
           </button>
-          <button className="hidden md:block px-5 py-2 text-sm font-semibold rounded-full border border-white/25 text-white/70 hover:text-white hover:bg-white/10 transition-colors">
+          <button className="hidden md:block px-5 py-2 text-sm font-semibold rounded-full border border-primary/50 text-primary hover:bg-primary/10 transition-colors">
             Contact Us
           </button>
         </div>

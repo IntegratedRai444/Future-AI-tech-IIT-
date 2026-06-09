@@ -1,4 +1,4 @@
-import React, { Suspense } from 'react';
+import React, { Suspense, useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { Canvas } from '@react-three/fiber';
 import { OrbitControls, Stars } from '@react-three/drei';
@@ -7,7 +7,49 @@ import { ChevronDown } from 'lucide-react';
 
 const AICore = React.lazy(() => import('../three/AICore'));
 
+const TECHNOLOGIES = [
+  "Artificial Intelligence",
+  "Quantum Computing",
+  "Cybersecurity",
+  "Space Technology",
+  "Robotics",
+  "Smart Cities"
+];
+
 export default function Hero() {
+  const [displayedText, setDisplayedText] = useState("");
+  const [wordIndex, setWordIndex] = useState(0);
+  const [isDeleting, setIsDeleting] = useState(false);
+
+  useEffect(() => {
+    let timer: NodeJS.Timeout;
+    const currentWord = TECHNOLOGIES[wordIndex];
+
+    const handleType = () => {
+      setDisplayedText((prev) => {
+        if (isDeleting) {
+          return currentWord.substring(0, prev.length - 1);
+        } else {
+          return currentWord.substring(0, prev.length + 1);
+        }
+      });
+
+      if (!isDeleting && displayedText === currentWord) {
+        timer = setTimeout(() => setIsDeleting(true), 1500);
+      } else if (isDeleting && displayedText === "") {
+        setIsDeleting(false);
+        setWordIndex((prev) => (prev + 1) % TECHNOLOGIES.length);
+      } else {
+        const speed = isDeleting ? 30 : 70;
+        timer = setTimeout(handleType, speed);
+      }
+    };
+
+    timer = setTimeout(handleType, isDeleting ? 30 : 70);
+
+    return () => clearTimeout(timer);
+  }, [displayedText, isDeleting, wordIndex]);
+
   const scrollToExplore = () => {
     document.getElementById('network')?.scrollIntoView({ behavior: 'smooth' });
   };
@@ -19,13 +61,13 @@ export default function Hero() {
         <Suspense fallback={null}>
           <Canvas camera={{ position: [0, 0, 8], fov: 45 }}>
             <ambientLight intensity={0.4} />
-            <pointLight position={[10, 10, 10]} intensity={0.8} color="#ffffff" />
-            <pointLight position={[-10, -10, -10]} intensity={0.3} color="#aaaaaa" />
+            <pointLight position={[10, 10, 10]} intensity={0.8} color="#00F5FF" />
+            <pointLight position={[-10, -10, -10]} intensity={0.3} color="#7B61FF" />
 
-            <Stars radius={100} depth={50} count={5000} factor={4} saturation={0} fade speed={1} />
+            <Stars radius={100} depth={50} count={8000} factor={4} saturation={0} fade speed={1} />
 
             <group position={[0, 0, -2]}>
-              <AICore scale={1.5} color="#ffffff" />
+              <AICore scale={1.5} color="#00F5FF" />
             </group>
 
             <OrbitControls
@@ -48,8 +90,8 @@ export default function Hero() {
           className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-white/20 bg-white/5 text-white/80 text-sm font-medium mb-8 backdrop-blur-md"
         >
           <span className="relative flex h-2 w-2">
-            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-50"></span>
-            <span className="relative inline-flex rounded-full h-2 w-2 bg-white"></span>
+            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-50"></span>
+            <span className="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
           </span>
           System Online
         </motion.div>
@@ -62,8 +104,19 @@ export default function Hero() {
         >
           <span className="text-gradient">FUTURE OF</span>
           <br />
-          <span className="text-white drop-shadow-[0_0_30px_rgba(255,255,255,0.2)]">TECHNOLOGY</span>
+          <span className="text-white drop-shadow-[0_0_30px_rgba(0,245,255,0.2)]">TECHNOLOGY</span>
         </motion.h1>
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, delay: 0.9 }}
+          className="text-xl md:text-2xl mb-4 font-mono"
+        >
+          <span className="text-muted-foreground">Powered by </span>
+          <span className="text-primary font-semibold">{displayedText}</span>
+          <span className="inline-block w-2 h-6 bg-primary ml-1 animate-pulse align-middle"></span>
+        </motion.div>
 
         <motion.p
           initial={{ opacity: 0, y: 20 }}
@@ -91,7 +144,7 @@ export default function Hero() {
             variant="outline"
             size="lg"
             onClick={scrollToExplore}
-            className="h-14 px-8 border-white/40 text-white hover:bg-white/10 text-lg font-semibold rounded-full glass w-full sm:w-auto neon-border"
+            className="h-14 px-8 border-primary/50 text-primary hover:bg-primary/10 text-lg font-semibold rounded-full glass w-full sm:w-auto neon-border"
           >
             Explore Technologies
           </Button>
@@ -105,12 +158,12 @@ export default function Hero() {
         transition={{ duration: 1, delay: 2 }}
         className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center text-muted-foreground z-10"
       >
-        <span className="text-xs uppercase tracking-widest mb-2 font-mono">Scroll</span>
+        <span className="text-xs uppercase tracking-widest mb-2 font-mono text-primary/70">Scroll</span>
         <motion.div
           animate={{ y: [0, 10, 0] }}
           transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
         >
-          <ChevronDown className="w-6 h-6 text-white/50" />
+          <ChevronDown className="w-6 h-6 text-primary/50" />
         </motion.div>
       </motion.div>
     </section>

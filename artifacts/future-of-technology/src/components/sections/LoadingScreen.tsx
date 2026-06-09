@@ -87,7 +87,7 @@ export default function LoadingScreen({ onComplete }: LoadingScreenProps) {
       className="fixed inset-0 z-50 flex flex-col items-center justify-center bg-[#050505] text-white"
     >
       {/* Subtle grid */}
-      <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.025)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.025)_1px,transparent_1px)] bg-[size:50px_50px] [mask-image:radial-gradient(ellipse_60%_60%_at_50%_50%,#000_10%,transparent_100%)]"></div>
+      <div className="absolute inset-0 bg-[linear-gradient(rgba(0,245,255,0.025)_1px,transparent_1px),linear-gradient(90deg,rgba(0,245,255,0.025)_1px,transparent_1px)] bg-[size:50px_50px] [mask-image:radial-gradient(ellipse_60%_60%_at_50%_50%,#000_10%,transparent_100%)]"></div>
 
       {/* Main Content */}
       <div className="relative z-10 w-full max-w-md px-6 flex flex-col items-center">
@@ -96,26 +96,26 @@ export default function LoadingScreen({ onComplete }: LoadingScreenProps) {
           <motion.div
             animate={{ rotate: 360 }}
             transition={{ duration: 4, repeat: Infinity, ease: "linear" }}
-            className="absolute inset-0 rounded-full border-t-2 border-r-2 border-white/40"
+            className="absolute inset-0 rounded-full border-t-2 border-r-2 border-primary"
           />
           <motion.div
             animate={{ rotate: -360 }}
             transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
-            className="absolute inset-2 rounded-full border-b-2 border-l-2 border-white/20"
+            className="absolute inset-2 rounded-full border-b-2 border-l-2 border-accent"
           />
           <div className="absolute inset-0 flex items-center justify-center">
-            <div className="w-4 h-4 bg-white rounded-full animate-pulse shadow-[0_0_15px_rgba(255,255,255,0.6)]"></div>
+            <div className="w-4 h-4 bg-primary rounded-full animate-pulse shadow-[0_0_15px_rgba(0,245,255,0.8)]"></div>
           </div>
         </div>
 
         {/* Terminal Output */}
-        <div className="w-full font-mono text-sm sm:text-base h-8 flex items-center text-white mb-8 tracking-wider">
-          <span className="mr-2 text-white/40">&gt;</span>
+        <div className="w-full font-mono text-sm sm:text-base h-8 flex items-center text-primary mb-8 tracking-wider">
+          <span className="mr-2 text-primary/40">&gt;</span>
           {displayedText}
           <motion.span
             animate={{ opacity: [1, 0] }}
             transition={{ duration: 0.8, repeat: Infinity }}
-            className="ml-1 inline-block w-2 h-5 bg-white"
+            className="ml-1 inline-block w-2 h-5 bg-primary"
           />
         </div>
 
@@ -123,13 +123,13 @@ export default function LoadingScreen({ onComplete }: LoadingScreenProps) {
         <div className="w-full relative">
           <div className="h-px w-full bg-white/10 rounded-full overflow-hidden">
             <motion.div
-              className="h-full bg-gradient-to-r from-white/40 via-white to-white/60"
+              className="h-full bg-gradient-to-r from-primary via-accent to-secondary"
               style={{ width: `${progress}%` }}
               layout
             />
           </div>
 
-          <div className="absolute top-4 right-0 font-mono text-xs text-white/30">
+          <div className="absolute top-4 right-0 font-mono text-xs text-primary/60">
             {Math.round(progress)}%
           </div>
 
@@ -137,7 +137,7 @@ export default function LoadingScreen({ onComplete }: LoadingScreenProps) {
           <motion.div
             animate={{ x: ["-100%", "200%"] }}
             transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
-            className="absolute top-0 left-0 bottom-0 w-1/4 bg-gradient-to-r from-transparent via-white/30 to-transparent skew-x-[-20deg]"
+            className="absolute top-0 left-0 bottom-0 w-1/4 bg-gradient-to-r from-transparent via-primary/30 to-transparent skew-x-[-20deg]"
           />
         </div>
       </div>

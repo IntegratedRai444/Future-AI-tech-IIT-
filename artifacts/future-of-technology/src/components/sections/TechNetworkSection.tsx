@@ -1,16 +1,16 @@
-import React, { useRef, useState } from 'react';
+import { useRef, useState } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
 import { OrbitControls, Line, Html } from '@react-three/drei';
 import * as THREE from 'three';
 import { motion } from 'framer-motion';
 
 const NODES = [
-  { id: 'ai', label: 'Artificial Intelligence', color: '#ffffff', radius: 3, angle: 0, speed: 0.2 },
-  { id: 'cyber', label: 'Cybersecurity', color: '#cccccc', radius: 4, angle: Math.PI / 3, speed: 0.15 },
-  { id: 'robotics', label: 'Robotics', color: '#aaaaaa', radius: 5, angle: (Math.PI / 3) * 2, speed: 0.25 },
-  { id: 'space', label: 'Space Tech', color: '#888888', radius: 6, angle: Math.PI, speed: 0.1 },
-  { id: 'smart', label: 'Smart Cities', color: '#bbbbbb', radius: 4.5, angle: (Math.PI / 3) * 4, speed: 0.18 },
-  { id: 'mobility', label: 'Mobility', color: '#dddddd', radius: 5.5, angle: (Math.PI / 3) * 5, speed: 0.22 },
+  { id: 'ai', label: 'Artificial Intelligence', color: '#00F5FF', radius: 3, angle: 0, speed: 0.2 },
+  { id: 'cyber', label: 'Cybersecurity', color: '#FF5500', radius: 4, angle: Math.PI / 3, speed: 0.15 },
+  { id: 'robotics', label: 'Robotics', color: '#3B82F6', radius: 5, angle: (Math.PI / 3) * 2, speed: 0.25 },
+  { id: 'space', label: 'Space Tech', color: '#4F46E5', radius: 6, angle: Math.PI, speed: 0.1 },
+  { id: 'smart', label: 'Smart Cities', color: '#10B981', radius: 4.5, angle: (Math.PI / 3) * 4, speed: 0.18 },
+  { id: 'mobility', label: 'Mobility', color: '#FBBF24', radius: 5.5, angle: (Math.PI / 3) * 5, speed: 0.22 },
 ];
 
 function NetworkGraph() {
@@ -26,13 +26,11 @@ function NetworkGraph() {
 
   return (
     <group ref={groupRef} rotation={[Math.PI / 6, 0, 0]}>
-      {/* Center AI Core */}
       <mesh>
         <sphereGeometry args={[1, 32, 32]} />
-        <meshBasicMaterial color="#ffffff" transparent opacity={0.85} />
+        <meshBasicMaterial color="#00F5FF" transparent opacity={0.85} />
       </mesh>
-
-      <pointLight position={[0, 0, 0]} intensity={1.5} color="#ffffff" distance={20} />
+      <pointLight position={[0, 0, 0]} intensity={1.5} color="#00F5FF" distance={20} />
 
       {NODES.map((node) => (
         <NetworkNode
@@ -47,48 +45,76 @@ function NetworkGraph() {
 }
 
 function NetworkNode({ node, isHovered, onHover }: any) {
-  const meshRef = useRef<THREE.Mesh>(null);
-  const [angleOffset, setAngleOffset] = useState(0);
+  const groupRef = useRef<THREE.Group>(null);
+  const ringRef = useRef<THREE.Mesh>(null);
+  const angleRef = useRef(node.angle);
 
   useFrame((state, delta) => {
-    setAngleOffset(prev => prev + delta * node.speed);
+    angleRef.current += delta * node.speed;
+    const a = angleRef.current;
+    const x = Math.cos(a) * node.radius;
+    const z = Math.sin(a) * node.radius;
+    const y = Math.sin(a * 2) * 1.5;
+
+    if (groupRef.current) {
+      groupRef.current.position.set(x, y, z);
+    }
+
+    if (isHovered && ringRef.current) {
+      const pulse = 1 + Math.sin(state.clock.elapsedTime * 5) * 0.2;
+      ringRef.current.scale.setScalar(pulse);
+      const mat = ringRef.current.material as THREE.MeshBasicMaterial;
+      mat.opacity = 0.4 + Math.sin(state.clock.elapsedTime * 5) * 0.3;
+    }
   });
 
-  const currentAngle = node.angle + angleOffset;
-  const x = Math.cos(currentAngle) * node.radius;
-  const z = Math.sin(currentAngle) * node.radius;
-  const y = Math.sin(currentAngle * 2) * 1.5;
-
   return (
-    <>
-      <Line
-        points={[[0, 0, 0], [x, y, z]]}
-        color={isHovered ? '#ffffff' : '#333333'}
-        lineWidth={isHovered ? 2 : 1}
-        transparent
-        opacity={isHovered ? 0.9 : 0.3}
-      />
+    <group ref={groupRef}>
+      {/* Connection line to center — rendered at origin offset */}
+      <mesh
+        onPointerOver={() => { document.body.style.cursor = 'pointer'; onHover(node.id); }}
+        onPointerOut={() => { document.body.style.cursor = 'auto'; onHover(null); }}
+      >
+        <sphereGeometry args={[isHovered ? 0.4 : 0.3, 16, 16]} />
+        <meshBasicMaterial color={node.color} transparent opacity={isHovered ? 1 : 0.65} />
+      </mesh>
 
-      <group position={[x, y, z]}>
-        <mesh
-          ref={meshRef}
-          onPointerOver={() => { document.body.style.cursor = 'pointer'; onHover(node.id); }}
-          onPointerOut={() => { document.body.style.cursor = 'auto'; onHover(null); }}
-        >
-          <sphereGeometry args={[isHovered ? 0.4 : 0.3, 16, 16]} />
-          <meshBasicMaterial color={node.color} transparent opacity={isHovered ? 1 : 0.65} />
+      {isHovered && (
+        <mesh ref={ringRef}>
+          <torusGeometry args={[0.55, 0.015, 16, 64]} />
+          <meshBasicMaterial color={node.color} transparent opacity={0.5} />
         </mesh>
+      )}
 
-        {isHovered && (
-          <Html position={[0.5, 0.5, 0]} center className="pointer-events-none">
-            <div className="bg-black/90 backdrop-blur border border-white/20 px-3 py-1.5 rounded text-sm font-medium whitespace-nowrap text-white shadow-[0_0_12px_rgba(255,255,255,0.15)]">
-              {node.label}
-            </div>
-          </Html>
-        )}
-      </group>
-    </>
+      {isHovered && (
+        <Html position={[0.6, 0.6, 0]} center className="pointer-events-none">
+          <div
+            className="bg-black/90 backdrop-blur border px-3 py-1.5 rounded text-sm font-medium whitespace-nowrap text-white"
+            style={{ borderColor: node.color, boxShadow: `0 0 12px ${node.color}40` }}
+          >
+            {node.label}
+          </div>
+        </Html>
+      )}
+    </group>
   );
+}
+
+function ConnectionLines() {
+  const linesGroupRef = useRef<THREE.Group>(null);
+  const nodeAngles = useRef(NODES.map(n => n.angle));
+
+  useFrame((state, delta) => {
+    NODES.forEach((node, i) => {
+      nodeAngles.current[i] += delta * node.speed;
+    });
+    if (linesGroupRef.current) {
+      linesGroupRef.current.rotation.y = state.clock.elapsedTime * 0.05;
+      linesGroupRef.current.rotation.z = Math.sin(state.clock.elapsedTime * 0.1) * 0.1;
+    }
+  });
+
+  return <group ref={linesGroupRef} rotation={[Math.PI / 6, 0, 0]} />;
 }
 
 export default function TechNetworkSection() {
@@ -97,7 +123,12 @@ export default function TechNetworkSection() {
       <div className="absolute inset-0 z-0">
         <Canvas camera={{ position: [0, 0, 12], fov: 60 }}>
           <NetworkGraph />
-          <OrbitControls enableZoom={false} enablePan={false} maxPolarAngle={Math.PI / 1.5} minPolarAngle={Math.PI / 3} />
+          <OrbitControls
+            enableZoom={false}
+            enablePan={false}
+            maxPolarAngle={Math.PI / 1.5}
+            minPolarAngle={Math.PI / 3}
+          />
         </Canvas>
       </div>
 

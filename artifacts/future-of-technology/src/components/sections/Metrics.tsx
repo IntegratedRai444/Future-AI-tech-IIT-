@@ -36,16 +36,16 @@ function Counter({ label, value, suffix, prefix = "", decimals = 0, duration = 2
   }, [isInView, value, duration]);
 
   return (
-    <div ref={ref} className="flex flex-col items-center justify-center p-6 glass-card rounded-2xl relative overflow-hidden group">
-      <div className="absolute -inset-px bg-gradient-to-r from-primary/50 to-secondary/50 opacity-0 group-hover:opacity-20 transition-opacity duration-500 rounded-2xl" />
-      <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-primary/50 to-transparent scale-x-0 group-hover:scale-x-100 transition-transform duration-500" />
+    <div ref={ref} className="flex flex-col items-center justify-center p-6 glass-card rounded-2xl relative overflow-hidden group border border-white/10">
+      <div className="absolute -inset-px bg-gradient-to-r from-primary/10 to-secondary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl" />
+      <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-primary/50 to-secondary/50 scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" />
       
-      <div className="font-mono text-4xl md:text-5xl font-bold text-white mb-2 tracking-tighter flex items-center">
+      <div className="font-mono text-4xl md:text-5xl font-bold text-white mb-2 tracking-tighter flex items-center relative z-10">
         {prefix && <span className="text-primary mr-1">{prefix}</span>}
         {displayValue.toFixed(decimals)}
         <span className="text-accent ml-1">{suffix}</span>
       </div>
-      <div className="text-sm md:text-base text-muted-foreground uppercase tracking-widest font-semibold text-center">
+      <div className="text-sm md:text-base text-muted-foreground uppercase tracking-widest font-semibold text-center relative z-10">
         {label}
       </div>
     </div>
