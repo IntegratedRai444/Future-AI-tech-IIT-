@@ -3,6 +3,9 @@ import react from "@vitejs/plugin-react";
 import tailwindcss from "@tailwindcss/vite";
 import path from "path";
 import { mockupPreviewPlugin } from "./mockupPreviewPlugin";
+import { fileURLToPath } from "url";
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 const rawPort = process.env.PORT;
 
@@ -35,12 +38,12 @@ export default defineConfig({
   ],
   resolve: {
     alias: {
-      "@": path.resolve(import.meta.dirname, "src"),
+      "@": path.resolve(__dirname, "src"),
     },
   },
-  root: path.resolve(import.meta.dirname),
+  root: path.resolve(__dirname),
   build: {
-    outDir: path.resolve(import.meta.dirname, "dist"),
+    outDir: path.resolve(__dirname, "dist"),
     emptyOutDir: true,
   },
   server: {
