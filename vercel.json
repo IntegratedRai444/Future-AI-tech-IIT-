@@ -1,7 +1,7 @@
 {
   "installCommand": "npx pnpm install",
   "buildCommand": "npx pnpm --filter @workspace/future-of-technology run build",
-  "outputDirectory": "artifacts/future-of-technology/dist/public",
+  "outputDirectory": "artifacts/future-of-technology/dist",
   "framework": null,
   "env": {
     "BASE_PATH": "/"
