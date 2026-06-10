@@ -47,6 +47,7 @@ function NetworkGraph() {
 function NetworkNode({ node, isHovered, onHover }: any) {
   const groupRef = useRef<THREE.Group>(null);
   const ringRef = useRef<THREE.Mesh>(null);
+  const lineRef = useRef<any>(null);
   const angleRef = useRef(node.angle);
 
   useFrame((state, delta) => {
@@ -60,6 +61,20 @@ function NetworkNode({ node, isHovered, onHover }: any) {
       groupRef.current.position.set(x, y, z);
     }
 
+    if (lineRef.current) {
+      const posAttr = lineRef.current.geometry.getAttribute('position') as THREE.BufferAttribute;
+      if (!posAttr) {
+        const positions = new Float32Array([0, 0, 0, -x, -y, -z]);
+        lineRef.current.geometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+      } else {
+        const array = posAttr.array as Float32Array;
+        array[3] = -x;
+        array[4] = -y;
+        array[5] = -z;
+        posAttr.needsUpdate = true;
+      }
+    }
+
     if (isHovered && ringRef.current) {
       const pulse = 1 + Math.sin(state.clock.elapsedTime * 5) * 0.2;
       ringRef.current.scale.setScalar(pulse);
@@ -71,6 +86,11 @@ function NetworkNode({ node, isHovered, onHover }: any) {
   return (
     <group ref={groupRef}>
       {/* Connection line to center — rendered at origin offset */}
+      <line ref={lineRef}>
+        <bufferGeometry />
+        <lineBasicMaterial color={node.color} transparent opacity={isHovered ? 0.6 : 0.15} />
+      </line>
+
       <mesh
         onPointerOver={() => { document.body.style.cursor = 'pointer'; onHover(node.id); }}
         onPointerOut={() => { document.body.style.cursor = 'auto'; onHover(null); }}
